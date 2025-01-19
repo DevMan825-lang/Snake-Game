@@ -1,6 +1,6 @@
 const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext('2d');
-
+const playerName = prompt("Enter Player Name:"); 
 const gridSize = 20;
 const canvasSize = 400;
 const initialLength = 2;
@@ -102,8 +102,7 @@ function checkGameOver() {
         head.y < 0 || head.y >= canvasSize || // Out of bounds
         isSnakeCollidingWithItself() // Colliding with itself
     ){
-      const playerName = prompt("Enter Player Name:")
-      document.getElementById("playerScore").textContent = "Game Over!" + " " + playerName + " " + "Your score is:" + score;
+     document.getElementById("playerScore").textContent = "Game Over!" + " " + playerName + " " + "Your score is:" + score;
         resetGame();
     }
 }
@@ -114,16 +113,9 @@ function isSnakeCollidingWithItself() {
 }
 
 function resetGame() {
-    snake = [
-        { x: 80, y: 80 },
-        { x: 60, y: 80 },
-        { x: 40, y: 80 },
-        { x: 20, y: 80 },
-        { x: 0, y: 80 }
-    ];
-    direction = 'right';
-    food = generateFood();
-    score = 0;
-    gameLoop();
+    setInterval(function(){
+    location.reload(); 
+    },100); 
 }
 gameLoop();
+  
